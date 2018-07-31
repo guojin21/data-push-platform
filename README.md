@@ -1,5 +1,6 @@
+#data-push-platform  
+基于SpringBoot 开发、可灵活配置、支持多种推送模式的数据推送平台
 
-#data-push-platform
 ## 系统运行环境
     jdk1.8 + 
     mysql5.6 +
@@ -29,9 +30,3 @@
     dpp-common   公共类
 
 
-    
-
-=======
-# data-push-platform
-基于SpringBoot 开发、可灵活配置、支持多种推送模式的数据推送平台
->>>>>>> 0d9aa167345129ebbc72cdcaa464703b4190a884
