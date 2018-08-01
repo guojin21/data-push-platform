@@ -1,4 +1,4 @@
-package com.guojin.dpp.server;
+package com.guojin.dpp.web;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
