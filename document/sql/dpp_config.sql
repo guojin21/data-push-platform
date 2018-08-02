@@ -2,7 +2,7 @@
 -- Table structure for `dpp_config`
 -- ----------------------------
 CREATE TABLE `dpp_config` (
-  `id` bigint(20) NOT NULL DEFAULT '0',
+  `id` bigint(20) NOT NULL  AUTO_INCREMENT,
   `user_id` varchar(50) DEFAULT NULL COMMENT '用户唯一标识（不同用户可进行不同的推送配置操作）',
   `name` varchar(50) DEFAULT NULL COMMENT '推送服务名称',
   `url` varchar(100) DEFAULT NULL COMMENT '推送地址',
