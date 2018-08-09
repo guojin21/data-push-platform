@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.guojin.dpp.web.dao.PushConfigInfoPoMapper">
-  <resultMap id="BaseResultMap" type="com.guojin.dpp.web.model.PushConfigInfoPo">
+<mapper namespace="com.guojin.dpp.web.dao.ConfigPOMapper">
+  <resultMap id="BaseResultMap" type="com.guojin.dpp.web.model.ConfigPO">
     <id column="id" jdbcType="BIGINT" property="id" />
     <result column="user_id" jdbcType="VARCHAR" property="userId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -75,7 +75,7 @@
     id, user_id, name, url, status, data_source_type, data_source_subject, adapter_id, 
     gmt_create, gmt_modified
   </sql>
-  <select id="selectByExample" parameterType="com.guojin.dpp.web.model.PushConfigInfoPoExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.guojin.dpp.web.model.ConfigPOExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -99,13 +99,13 @@
     delete from dpp_config
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <delete id="deleteByExample" parameterType="com.guojin.dpp.web.model.PushConfigInfoPoExample">
+  <delete id="deleteByExample" parameterType="com.guojin.dpp.web.model.ConfigPOExample">
     delete from dpp_config
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.guojin.dpp.web.model.PushConfigInfoPo">
+  <insert id="insert" parameterType="com.guojin.dpp.web.model.ConfigPO">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -118,7 +118,7 @@
       #{adapterId,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP}, #{gmtModified,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.guojin.dpp.web.model.PushConfigInfoPo">
+  <insert id="insertSelective" parameterType="com.guojin.dpp.web.model.ConfigPO">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -182,7 +182,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.guojin.dpp.web.model.PushConfigInfoPoExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.guojin.dpp.web.model.ConfigPOExample" resultType="java.lang.Long">
     select count(*) from dpp_config
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -242,7 +242,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.guojin.dpp.web.model.PushConfigInfoPo">
+  <update id="updateByPrimaryKeySelective" parameterType="com.guojin.dpp.web.model.ConfigPO">
     update dpp_config
     <set>
       <if test="userId != null">
@@ -275,7 +275,7 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.guojin.dpp.web.model.PushConfigInfoPo">
+  <update id="updateByPrimaryKey" parameterType="com.guojin.dpp.web.model.ConfigPO">
     update dpp_config
     set user_id = #{userId,jdbcType=VARCHAR},
       name = #{name,jdbcType=VARCHAR},

@@ -6,7 +6,7 @@ package com.guojin.dpp.web.dto;
  * @author: guojin
  * @date: 2018/8/2 12:34
  **/
-public class ConfigInfoDTO {
+public class ConfigDTO {
     private Long id;
     private String userId;
     private String name;
@@ -82,7 +82,7 @@ public class ConfigInfoDTO {
 
     @Override
     public String toString() {
-        return "ConfigInfoDTO{" +
+        return "ConfigDTO{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +

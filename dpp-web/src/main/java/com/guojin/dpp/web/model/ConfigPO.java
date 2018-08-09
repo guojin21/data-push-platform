@@ -2,7 +2,7 @@ package com.guojin.dpp.web.model;
 
 import java.util.Date;
 
-public class PushConfigInfoPo {
+public class ConfigPO {
     private Long id;
 
     private String userId;
