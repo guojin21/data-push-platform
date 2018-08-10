@@ -565,63 +565,73 @@ public class ConfigPOExample {
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdIsNull() {
-            addCriterion("adapter_id is null");
+        public Criteria andAdapterIsNull() {
+            addCriterion("adapter is null");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdIsNotNull() {
-            addCriterion("adapter_id is not null");
+        public Criteria andAdapterIsNotNull() {
+            addCriterion("adapter is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdEqualTo(Integer value) {
-            addCriterion("adapter_id =", value, "adapterId");
+        public Criteria andAdapterEqualTo(String value) {
+            addCriterion("adapter =", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdNotEqualTo(Integer value) {
-            addCriterion("adapter_id <>", value, "adapterId");
+        public Criteria andAdapterNotEqualTo(String value) {
+            addCriterion("adapter <>", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdGreaterThan(Integer value) {
-            addCriterion("adapter_id >", value, "adapterId");
+        public Criteria andAdapterGreaterThan(String value) {
+            addCriterion("adapter >", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("adapter_id >=", value, "adapterId");
+        public Criteria andAdapterGreaterThanOrEqualTo(String value) {
+            addCriterion("adapter >=", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdLessThan(Integer value) {
-            addCriterion("adapter_id <", value, "adapterId");
+        public Criteria andAdapterLessThan(String value) {
+            addCriterion("adapter <", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdLessThanOrEqualTo(Integer value) {
-            addCriterion("adapter_id <=", value, "adapterId");
+        public Criteria andAdapterLessThanOrEqualTo(String value) {
+            addCriterion("adapter <=", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdIn(List<Integer> values) {
-            addCriterion("adapter_id in", values, "adapterId");
+        public Criteria andAdapterLike(String value) {
+            addCriterion("adapter like", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdNotIn(List<Integer> values) {
-            addCriterion("adapter_id not in", values, "adapterId");
+        public Criteria andAdapterNotLike(String value) {
+            addCriterion("adapter not like", value, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdBetween(Integer value1, Integer value2) {
-            addCriterion("adapter_id between", value1, value2, "adapterId");
+        public Criteria andAdapterIn(List<String> values) {
+            addCriterion("adapter in", values, "adapter");
             return (Criteria) this;
         }
 
-        public Criteria andAdapterIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("adapter_id not between", value1, value2, "adapterId");
+        public Criteria andAdapterNotIn(List<String> values) {
+            addCriterion("adapter not in", values, "adapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdapterBetween(String value1, String value2) {
+            addCriterion("adapter between", value1, value2, "adapter");
+            return (Criteria) this;
+        }
+
+        public Criteria andAdapterNotBetween(String value1, String value2) {
+            addCriterion("adapter not between", value1, value2, "adapter");
             return (Criteria) this;
         }
 

@@ -4,12 +4,14 @@ package com.guojin.dpp.web.service.impl;
 import com.guojin.dpp.web.dao.ConfigPOMapper;
 import com.guojin.dpp.web.dto.ConfigDTO;
 import com.guojin.dpp.web.model.ConfigPO;
+import com.guojin.dpp.web.model.ConfigPOExample;
 import com.guojin.dpp.web.model.ConfigTransfer;
 import com.guojin.dpp.web.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -36,5 +38,29 @@ public class ConfigServiceImpl implements ConfigService {
     @Override
     public ConfigPO getConfigInfoById(Long configId) {
         return configPoMapper.selectByPrimaryKey(configId);
+    }
+
+    @Override
+    public List<ConfigPO> getConfigsByUserId(String userId) {
+        ConfigPOExample example = new ConfigPOExample();
+        example.createCriteria().andUserIdEqualTo(userId);
+        return configPoMapper.selectByExample(example);
+    }
+
+    @Override
+    public boolean updateConfig(ConfigDTO configDTO) {
+        ConfigPOExample example = new ConfigPOExample();
+        example.createCriteria().andIdEqualTo(configDTO.getId());
+        Date now = new Date();
+        ConfigPO configPo = ConfigTransfer.dto2po(configDTO);
+        configPo.setGmtModified(now);
+        int resultCode = configPoMapper.updateByExampleSelective(configPo,example);
+        return resultCode > 0 ? true : false;
+    }
+
+    @Override
+    public boolean deleteConfig(Long configId) {
+        int resultCode = configPoMapper.deleteByPrimaryKey(configId);
+        return resultCode > 0 ? true : false;
     }
 }

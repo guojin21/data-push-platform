@@ -14,7 +14,7 @@ public class ConfigDTO {
     private Integer status;
     private Integer dataSourceType;
     private String dataSourceSubject;
-    private Integer adapterId;
+    private PushDataAdapterDTO adapterDTO;
 
     public Long getId() {
         return id;
@@ -72,12 +72,13 @@ public class ConfigDTO {
         this.dataSourceSubject = dataSourceSubject;
     }
 
-    public Integer getAdapterId() {
-        return adapterId;
+
+    public PushDataAdapterDTO getAdapterDTO() {
+        return adapterDTO;
     }
 
-    public void setAdapterId(Integer adapterId) {
-        this.adapterId = adapterId;
+    public void setAdapterDTO(PushDataAdapterDTO adapterDTO) {
+        this.adapterDTO = adapterDTO;
     }
 
     @Override
@@ -90,7 +91,7 @@ public class ConfigDTO {
                 ", status='" + status + '\'' +
                 ", dataSourceType=" + dataSourceType +
                 ", dataSourceSubject='" + dataSourceSubject + '\'' +
-                ", adapterId=" + adapterId +
+                ", adapterDTO=" + adapterDTO +
                 '}';
     }
 }

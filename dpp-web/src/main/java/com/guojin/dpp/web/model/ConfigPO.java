@@ -17,7 +17,7 @@ public class ConfigPO {
 
     private String dataSourceSubject;
 
-    private Integer adapterId;
+    private String adapter;
 
     private Date gmtCreate;
 
@@ -79,12 +79,12 @@ public class ConfigPO {
         this.dataSourceSubject = dataSourceSubject == null ? null : dataSourceSubject.trim();
     }
 
-    public Integer getAdapterId() {
-        return adapterId;
+    public String getAdapter() {
+        return adapter;
     }
 
-    public void setAdapterId(Integer adapterId) {
-        this.adapterId = adapterId;
+    public void setAdapter(String adapter) {
+        this.adapter = adapter == null ? null : adapter.trim();
     }
 
     public Date getGmtCreate() {

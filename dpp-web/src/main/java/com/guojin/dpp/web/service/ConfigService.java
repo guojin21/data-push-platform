@@ -3,6 +3,8 @@ package com.guojin.dpp.web.service;
 import com.guojin.dpp.web.dto.ConfigDTO;
 import com.guojin.dpp.web.model.ConfigPO;
 
+import java.util.List;
+
 /**
  * @describe: 配置管理接口
  * @author: guojin
@@ -21,4 +23,25 @@ public interface ConfigService {
      * @date: 2018/8/8 18:25
      **/
     ConfigPO getConfigInfoById(Long configId);
+
+
+    /**
+     * @describe: 查询用户userId所有配置信息
+     * @date: 2018/8/9 18:06
+     **/
+    List<ConfigPO> getConfigsByUserId(String userId);
+
+
+    /**
+     * @describe: 修改推送配置信息
+     * @date: 2018/8/10 16:46
+     **/
+    boolean updateConfig(ConfigDTO configDTO);
+
+
+    /**
+     * @describe: 删除推送配置信息
+     * @date: 2018/8/10 17:08
+     **/
+    boolean deleteConfig(Long configId);
 }
