@@ -1,1 +1,0 @@
-CREATE DATABASE `data_push_platform` /*!40100 DEFAULT CHARACTER SET utf8 */;
