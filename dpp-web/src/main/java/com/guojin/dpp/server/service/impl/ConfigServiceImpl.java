@@ -1,12 +1,12 @@
-package com.guojin.dpp.web.service.impl;
+package com.guojin.dpp.server.service.impl;
 
 
-import com.guojin.dpp.web.dao.ConfigPOMapper;
-import com.guojin.dpp.web.dto.ConfigDTO;
-import com.guojin.dpp.web.model.ConfigPO;
-import com.guojin.dpp.web.model.ConfigPOExample;
-import com.guojin.dpp.web.model.ConfigTransfer;
-import com.guojin.dpp.web.service.ConfigService;
+import com.guojin.dpp.server.dao.ConfigPOMapper;
+import com.guojin.dpp.server.dto.ConfigDTO;
+import com.guojin.dpp.server.model.ConfigPO;
+import com.guojin.dpp.server.model.ConfigPOExample;
+import com.guojin.dpp.server.model.ConfigTransfer;
+import com.guojin.dpp.server.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -62,5 +62,11 @@ public class ConfigServiceImpl implements ConfigService {
     public boolean deleteConfig(Long configId) {
         int resultCode = configPoMapper.deleteByPrimaryKey(configId);
         return resultCode > 0 ? true : false;
+    }
+
+    @Override
+    public List<ConfigPO> getAllConfigInfo() {
+        ConfigPOExample example = new ConfigPOExample();
+        return configPoMapper.selectByExample(example);
     }
 }

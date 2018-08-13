@@ -1,7 +1,7 @@
-package com.guojin.dpp.web.dao;
+package com.guojin.dpp.server.dao;
 
-import com.guojin.dpp.web.model.ConfigPO;
-import com.guojin.dpp.web.model.ConfigPOExample;
+import com.guojin.dpp.server.model.ConfigPO;
+import com.guojin.dpp.server.model.ConfigPOExample;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;

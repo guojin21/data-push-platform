@@ -23,6 +23,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.guojin</groupId>
+            <artifactId>dpp-common</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

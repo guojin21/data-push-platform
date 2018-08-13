@@ -1,4 +1,4 @@
-package com.guojin.dpp.web.controller;
+package com.guojin.dpp.server.controller;
 
 
 import com.google.common.base.Preconditions;
@@ -7,10 +7,10 @@ import com.guojin.dpp.common.client.ResultCodeProvider;
 import com.guojin.dpp.common.constant.CommonErrCodes;
 import com.guojin.dpp.common.constant.ModuleCodeEnum;
 import com.guojin.dpp.common.constant.SubModuleCode;
-import com.guojin.dpp.web.dto.ConfigDTO;
-import com.guojin.dpp.web.model.ConfigPO;
-import com.guojin.dpp.web.model.ConfigTransfer;
-import com.guojin.dpp.web.service.ConfigService;
+import com.guojin.dpp.server.dto.ConfigDTO;
+import com.guojin.dpp.server.model.ConfigPO;
+import com.guojin.dpp.server.model.ConfigTransfer;
+import com.guojin.dpp.server.service.ConfigService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -54,6 +54,23 @@ public class ConfigController {
         } catch (Exception e) {
             logger.error("配置信息保存失败", e);
             return rCodeProvider.getRCode(CommonErrCodes.INTERNAL_ERROR_FOR, false, new Object[]{e.getMessage()});
+        }
+    }
+
+    @RequestMapping(value = "/getAll", method = RequestMethod.GET)
+    @ResponseBody
+    @ApiOperation(value = "查询所有配置信息", notes = "查询所有配置信息")
+    public ResultCode<List<ConfigDTO>> getAllConfigInfo() {
+        try {
+            List<ConfigPO> configPOS = configServiceImpl.getAllConfigInfo();
+            if (CollectionUtils.isEmpty(configPOS)) {
+                throw new IllegalArgumentException(String.format("记录为空"));
+            }
+            List<ConfigDTO> configDTOS = ConfigTransfer.poList2dtoList(configPOS);
+            return rCodeProvider.getRCode(configDTOS);
+        } catch (Exception e) {
+            logger.error("查询所有配置信息失败", e);
+            return rCodeProvider.getRCode(CommonErrCodes.INTERNAL_ERROR_FOR, null, new Object[]{e.getMessage()});
         }
     }
 

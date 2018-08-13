@@ -1,7 +1,7 @@
-package com.guojin.dpp.web.service;
+package com.guojin.dpp.server.service;
 
-import com.guojin.dpp.web.dto.ConfigDTO;
-import com.guojin.dpp.web.model.ConfigPO;
+import com.guojin.dpp.server.dto.ConfigDTO;
+import com.guojin.dpp.server.model.ConfigPO;
 
 import java.util.List;
 
@@ -44,4 +44,11 @@ public interface ConfigService {
      * @date: 2018/8/10 17:08
      **/
     boolean deleteConfig(Long configId);
+
+
+    /**
+     * @describe: 获取数据库所有配置信息
+     * @date: 2018/8/13 16:57
+     **/
+    List<ConfigPO> getAllConfigInfo();
 }

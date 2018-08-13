@@ -1,4 +1,4 @@
-package com.guojin.dpp.web.dto;
+package com.guojin.dpp.server.dto;
 
 public class PushDataAdapterDTO {
     private Integer id;
