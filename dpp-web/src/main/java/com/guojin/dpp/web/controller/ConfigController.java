@@ -1,4 +1,4 @@
-package com.guojin.dpp.server.controller;
+package com.guojin.dpp.web.controller;
 
 
 import com.google.common.base.Preconditions;
@@ -7,10 +7,10 @@ import com.guojin.dpp.common.client.ResultCodeProvider;
 import com.guojin.dpp.common.constant.CommonErrCodes;
 import com.guojin.dpp.common.constant.ModuleCodeEnum;
 import com.guojin.dpp.common.constant.SubModuleCode;
-import com.guojin.dpp.server.dto.ConfigDTO;
-import com.guojin.dpp.server.model.ConfigPO;
-import com.guojin.dpp.server.model.ConfigTransfer;
-import com.guojin.dpp.server.service.ConfigService;
+import com.guojin.dpp.common.dto.ConfigDTO;
+import com.guojin.dpp.web.model.ConfigPO;
+import com.guojin.dpp.web.model.ConfigTransfer;
+import com.guojin.dpp.web.service.ConfigService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

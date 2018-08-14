@@ -19,9 +19,9 @@
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--<property name="basePackage"
                   value="com.guojin.dpp.serverver.dao;\
-                        com.guojin.dpp.server.dao;"></property>-->
+                        com.guojin.dpp.webo;"></property>-->
         <property name="basePackage"
-                  value="com.guojin.dpp.server.dao;"></property>
+                  value="com.guojin.dpp.web.dao;"></property>
         <property name="sqlSessionFactoryBeanName" value="dppSqlSessionFactory"></property>
     </bean>
 

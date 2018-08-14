@@ -26,18 +26,18 @@
         </javaTypeResolver>
 
         <!-- 数据表对应的model层  -->
-        <javaModelGenerator targetPackage="com.guojin.dpp.server.model" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.guojin.dpp.web.model" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
         <!-- sql mapper 映射配置文件 -->
-        <sqlMapGenerator targetPackage="com.guojin.dpp.server.dao" targetProject="src/main/resources">
+        <sqlMapGenerator targetPackage="com.guojin.dpp.web.dao" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <!-- mybatis3中的mapper接口 -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.guojin.dpp.server.dao" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.guojin.dpp.web.dao" targetProject="src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 

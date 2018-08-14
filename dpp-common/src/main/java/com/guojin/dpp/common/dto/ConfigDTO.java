@@ -1,27 +1,20 @@
-package com.guojin.dpp.server.model;
+package com.guojin.dpp.common.dto;
 
-import java.util.Date;
 
-public class ConfigPO {
+/**
+ * @describe: 配置信息的数据传输对象
+ * @author: guojin
+ * @date: 2018/8/2 12:34
+ **/
+public class ConfigDTO {
     private Long id;
-
     private String userId;
-
     private String name;
-
     private String url;
-
     private Integer status;
-
     private Integer dataSourceType;
-
     private String dataSourceSubject;
-
-    private String adapter;
-
-    private Date gmtCreate;
-
-    private Date gmtModified;
+    private PushDataAdapterDTO adapterDTO;
 
     public Long getId() {
         return id;
@@ -36,7 +29,7 @@ public class ConfigPO {
     }
 
     public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
+        this.userId = userId;
     }
 
     public String getName() {
@@ -44,7 +37,7 @@ public class ConfigPO {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUrl() {
@@ -52,7 +45,7 @@ public class ConfigPO {
     }
 
     public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+        this.url = url;
     }
 
     public Integer getStatus() {
@@ -76,46 +69,30 @@ public class ConfigPO {
     }
 
     public void setDataSourceSubject(String dataSourceSubject) {
-        this.dataSourceSubject = dataSourceSubject == null ? null : dataSourceSubject.trim();
+        this.dataSourceSubject = dataSourceSubject;
     }
 
-    public String getAdapter() {
-        return adapter;
+
+    public PushDataAdapterDTO getAdapterDTO() {
+        return adapterDTO;
     }
 
-    public void setAdapter(String adapter) {
-        this.adapter = adapter == null ? null : adapter.trim();
+    public void setAdapterDTO(PushDataAdapterDTO adapterDTO) {
+        this.adapterDTO = adapterDTO;
     }
 
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
-
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
-
-    public Date getGmtModified() {
-        return gmtModified;
-    }
-
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
 
     @Override
     public String toString() {
-        return "ConfigPO{" +
+        return "ConfigDTO{" +
                 "id=" + id +
                 ", userId='" + userId + '\'' +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
-                ", status=" + status +
+                ", status='" + status + '\'' +
                 ", dataSourceType=" + dataSourceType +
                 ", dataSourceSubject='" + dataSourceSubject + '\'' +
-                ", adapter='" + adapter + '\'' +
-                ", gmtCreate=" + gmtCreate +
-                ", gmtModified=" + gmtModified +
+                ", adapterDTO=" + adapterDTO +
                 '}';
     }
 }

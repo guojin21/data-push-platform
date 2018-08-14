@@ -1,4 +1,4 @@
-package com.guojin.dpp.server.model;
+package com.guojin.dpp.web.model;
 
 import java.util.ArrayList;
 import java.util.Date;

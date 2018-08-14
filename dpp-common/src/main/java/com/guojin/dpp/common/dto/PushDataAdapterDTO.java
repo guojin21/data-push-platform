@@ -1,5 +1,11 @@
-package com.guojin.dpp.server.dto;
+package com.guojin.dpp.common.dto;
 
+
+/**
+ * @describe: 推送数据的适配器对象
+ * @author: guojin
+ * @date: 2018/8/14 18:08
+ **/
 public class PushDataAdapterDTO {
     private Integer id;
     private String name;

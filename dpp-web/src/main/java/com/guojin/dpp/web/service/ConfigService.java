@@ -1,7 +1,7 @@
-package com.guojin.dpp.server.service;
+package com.guojin.dpp.web.service;
 
-import com.guojin.dpp.server.dto.ConfigDTO;
-import com.guojin.dpp.server.model.ConfigPO;
+import com.guojin.dpp.common.dto.ConfigDTO;
+import com.guojin.dpp.web.model.ConfigPO;
 
 import java.util.List;
 

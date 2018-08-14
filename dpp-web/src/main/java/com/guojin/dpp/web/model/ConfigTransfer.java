@@ -1,8 +1,8 @@
-package com.guojin.dpp.server.model;
+package com.guojin.dpp.web.model;
 
 import com.google.gson.Gson;
-import com.guojin.dpp.server.dto.ConfigDTO;
-import com.guojin.dpp.server.dto.PushDataAdapterDTO;
+import com.guojin.dpp.common.dto.ConfigDTO;
+import com.guojin.dpp.common.dto.PushDataAdapterDTO;
 
 import java.util.ArrayList;
 import java.util.List;

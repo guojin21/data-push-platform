@@ -4,11 +4,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
 import java.util.Arrays;
 
+/**
+ * @describe: 适配器基类
+ * @author: guojin
+ * @date: 2018/8/14 18:11
+ **/
+@Component
 public class BaseAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(BaseAdapter.class);
@@ -22,9 +29,14 @@ public class BaseAdapter {
     }
 
     @Autowired
-    protected RestTemplate restTemplate;
+    protected static RestTemplate restTemplate = new RestTemplate();
 
 
+
+    /**
+     * @describe: 使用RestTemplate推送数据
+     * @date: 2018/8/14 18:13
+     **/
     protected String pushDataByREST(String url, String params, HttpMethod method) {
         HttpEntity<String> requestEntity = new HttpEntity<String>(params, headers);
         logger.info("调用参数:" + requestEntity.toString());

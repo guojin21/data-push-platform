@@ -1,18 +1,20 @@
 package com.guojin.dpp.master;
 
-import com.guojin.dpp.server.dto.ConfigDTO;
-import com.guojin.dpp.server.model.ConfigPO;
-import com.guojin.dpp.server.model.ConfigTransfer;
-import com.guojin.dpp.server.service.ConfigService;
+import com.guojin.dpp.common.cache.ConfigCache;
+import com.guojin.dpp.common.dto.ConfigDTO;
+import com.guojin.dpp.web.model.ConfigPO;
+import com.guojin.dpp.web.model.ConfigTransfer;
+import com.guojin.dpp.web.service.ConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.PostConstruct;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @describe: 启动类
@@ -23,9 +25,8 @@ import java.util.concurrent.ConcurrentHashMap;
         "com.guojin.dpp.*"
 })
 @ImportResource({"classpath:mybatis-config.xml"})
+@EnableScheduling
 public class DppMasterApplication {
-
-    public static Map<String, Set<ConfigDTO>> GLOBAL_CONFIG_CACHE = new ConcurrentHashMap<>();
 
     @Autowired
     private ConfigService configService;
@@ -49,30 +50,12 @@ public class DppMasterApplication {
         List<ConfigDTO> configDTOS = ConfigTransfer.poList2dtoList(configPOS);
 
         //获取用户集合
-        Set<String> userSet = getUserSet(configDTOS);
+        Set<String> userSet = ConfigCache.getUserSet(configDTOS);
         //加载配置到内存，便于快速读取配置信息
-        loadGlobalConfigs(userSet, configDTOS);
+        ConfigCache.loadGlobalConfigs(userSet, configDTOS);
 
-        System.out.println("GLOBAL_CONFIG_CACHE:" + GLOBAL_CONFIG_CACHE);
+        System.out.println("GLOBAL_CONFIG_CACHE:" +  ConfigCache.GLOBAL_CONFIG_CACHE);
     }
 
-    private Set<String> getUserSet(List<ConfigDTO> configDTOS) {
-        Set<String> userSet = new TreeSet<>();
-        for (ConfigDTO configDTO : configDTOS) {
-            userSet.add(configDTO.getUserId());
-        }
-        return userSet;
-    }
 
-    private void loadGlobalConfigs(Set<String> userSet, List<ConfigDTO> configDTOS) {
-        for (String userId : userSet) {
-            Set<ConfigDTO> configDTOSet = new HashSet<>();
-            for (ConfigDTO configDTO : configDTOS) {
-                if (userId.equals(configDTO.getUserId())) {
-                    configDTOSet.add(configDTO);
-                }
-            }
-            GLOBAL_CONFIG_CACHE.put(userId, configDTOSet);
-        }
-    }
 }
