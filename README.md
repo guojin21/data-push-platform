@@ -8,7 +8,7 @@
     
 ## 启动说明
     启动模块: dpp-master
-    启动类: com.guojin.dpp.master.DppMasterApplication
+    启动类: MasterApplication
     系统配置文件: dpp-master/src/main/resources/application.properties
                 本地运行调整mysql环境信息
     默认启动端口: 8080

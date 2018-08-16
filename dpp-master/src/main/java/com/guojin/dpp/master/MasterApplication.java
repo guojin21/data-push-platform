@@ -26,13 +26,13 @@ import java.util.Set;
 })
 @ImportResource({"classpath:mybatis-config.xml"})
 @EnableScheduling
-public class DppMasterApplication {
+public class MasterApplication {
 
     @Autowired
     private ConfigService configService;
 
     public static void main(String[] args) {
-        SpringApplication.run(DppMasterApplication.class, args);
+        SpringApplication.run(MasterApplication.class, args);
     }
 
 
@@ -42,7 +42,6 @@ public class DppMasterApplication {
      **/
     @PostConstruct
     public void loadConfigs4Map() {
-
         List<ConfigPO> configPOS = configService.getAllConfigInfo();
         if (CollectionUtils.isEmpty(configPOS)) {
             throw new IllegalArgumentException(String.format("记录为空"));
@@ -56,6 +55,4 @@ public class DppMasterApplication {
 
         System.out.println("GLOBAL_CONFIG_CACHE:" +  ConfigCache.GLOBAL_CONFIG_CACHE);
     }
-
-
 }

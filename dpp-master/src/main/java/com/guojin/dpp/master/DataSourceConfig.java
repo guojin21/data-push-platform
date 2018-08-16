@@ -16,7 +16,7 @@ import javax.sql.DataSource;
  * @date: 2018/8/2 17:59
  **/
 @Configuration
-public class DPPDataSourceConfig {
+public class DataSourceConfig {
     @Value("${spring.datasource.dpp.url}")
     private String dbUrl;
 

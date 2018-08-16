@@ -32,7 +32,7 @@ public class SendMessageTimer {
         messageDTO.setDataSourceSubject("subject");
         messageDTO.setDataSourceType("0");
         messageDTO.setUserId("1001");
-        MessageHandler.sendMessage(messageDTO);
+        MessageHandler.getInstance().sendMessage(messageDTO);
     }
 
 }

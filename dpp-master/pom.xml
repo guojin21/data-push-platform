@@ -59,7 +59,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.guojin.dpp.master.DppMasterApplication</mainClass>
+                    <mainClass>com.guojin.dpp.master.MasterApplication</mainClass>
                     <layout>ZIP</layout>
                     <outputDirectory>./run</outputDirectory>
                 </configuration>
