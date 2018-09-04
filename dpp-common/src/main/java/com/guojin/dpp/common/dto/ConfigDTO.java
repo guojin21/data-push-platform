@@ -1,6 +1,8 @@
 package com.guojin.dpp.common.dto;
 
 
+import java.util.Objects;
+
 /**
  * @describe: 配置信息的数据传输对象
  * @author: guojin
@@ -81,6 +83,26 @@ public class ConfigDTO {
         this.adapterDTO = adapterDTO;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ConfigDTO configDTO = (ConfigDTO) o;
+        return Objects.equals(id, configDTO.id) &&
+                Objects.equals(userId, configDTO.userId) &&
+                Objects.equals(name, configDTO.name) &&
+                Objects.equals(url, configDTO.url) &&
+                Objects.equals(status, configDTO.status) &&
+                Objects.equals(dataSourceType, configDTO.dataSourceType) &&
+                Objects.equals(dataSourceSubject, configDTO.dataSourceSubject) &&
+                Objects.equals(adapterDTO, configDTO.adapterDTO);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, userId, name, url, status, dataSourceType, dataSourceSubject, adapterDTO);
+    }
 
     @Override
     public String toString() {

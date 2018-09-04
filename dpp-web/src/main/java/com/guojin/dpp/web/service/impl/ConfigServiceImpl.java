@@ -1,8 +1,9 @@
 package com.guojin.dpp.web.service.impl;
 
 
-import com.guojin.dpp.web.dao.ConfigPOMapper;
+import com.guojin.dpp.common.cache.ConfigCache;
 import com.guojin.dpp.common.dto.ConfigDTO;
+import com.guojin.dpp.web.dao.ConfigPOMapper;
 import com.guojin.dpp.web.model.ConfigPO;
 import com.guojin.dpp.web.model.ConfigPOExample;
 import com.guojin.dpp.web.model.ConfigTransfer;
@@ -32,6 +33,7 @@ public class ConfigServiceImpl implements ConfigService {
         configPo.setGmtModified(now);
         configPo.setGmtCreate(now);
         int resultCode = configPoMapper.insert(configPo);
+
         return resultCode > 0 ? true : false;
     }
 

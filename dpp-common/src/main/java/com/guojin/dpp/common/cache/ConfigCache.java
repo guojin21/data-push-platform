@@ -13,6 +13,9 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class ConfigCache {
 
+    /**
+     * 根据不同用户定制不同的推送形式
+     */
     public static Map<String, Set<ConfigDTO>> GLOBAL_CONFIG_CACHE = new ConcurrentHashMap<>();
 
     public static Set<String> getUserSet(List<ConfigDTO> configDTOS) {
