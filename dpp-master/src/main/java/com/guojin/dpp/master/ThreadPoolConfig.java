@@ -36,9 +36,10 @@ public class ThreadPoolConfig {
 
 
     @Bean
-    public void initThreadPool() {
+    public int initThreadPool() {
         BlockingQueue blockQueue = new ArrayBlockingQueue<Runnable>(MAX_BLOCK_QUEUE, true);
         ExecutorService executorService = new ThreadPoolExecutor(CORE_THREADS, MAX_THREADS, 1, TimeUnit.MINUTES, blockQueue);
         MessageHandler.setExecutorService(executorService);
+        return 1;
     }
 }

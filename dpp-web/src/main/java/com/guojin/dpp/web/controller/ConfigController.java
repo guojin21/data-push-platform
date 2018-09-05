@@ -2,7 +2,6 @@ package com.guojin.dpp.web.controller;
 
 
 import com.google.common.base.Preconditions;
-import com.guojin.dpp.common.cache.ConfigCache;
 import com.guojin.dpp.common.client.ResultCode;
 import com.guojin.dpp.common.client.ResultCodeProvider;
 import com.guojin.dpp.common.constant.CommonErrCodes;
@@ -48,10 +47,6 @@ public class ConfigController {
         try {
             Preconditions.checkArgument(null != configDTO, "新增配置信息不能为空");
             boolean success = configServiceImpl.addConfig(configDTO);
-            if (success) {
-                //获取该用户已有的配置集合并追加新的配置到内存
-                success = ConfigCache.GLOBAL_CONFIG_CACHE.get(configDTO.getUserId()).add(configDTO);
-            }
             return rCodeProvider.getRCode(success);
         } catch (IllegalArgumentException e) {
             logger.warn("新增配置信息参数检验失败", e);
@@ -129,15 +124,6 @@ public class ConfigController {
         try {
             Preconditions.checkArgument(null != configDTO, "更新参数不能为空");
             boolean success = configServiceImpl.updateConfig(configDTO);
-            if (success) {
-                //获取该用户已有的配置集合并删除指定配置到内存
-                ConfigDTO oldConfigDTO = getConfigInfoById(configDTO.getId()).getData();
-                success = ConfigCache.GLOBAL_CONFIG_CACHE.get(configDTO.getUserId()).remove(oldConfigDTO);
-                if(success){
-                    //新增修改后的配置信息到内存
-                    success = ConfigCache.GLOBAL_CONFIG_CACHE.get(configDTO.getUserId()).add(configDTO);
-                }
-            }
             return rCodeProvider.getRCode(success);
         } catch (IllegalArgumentException e) {
             logger.warn("更新的配置参数检验失败", e);
@@ -155,11 +141,6 @@ public class ConfigController {
         try {
             Preconditions.checkArgument(null != configId, "参数id不能为空");
             boolean success = configServiceImpl.deleteConfig(configId);
-            if (success) {
-                //获取该用户已有的配置集合并删除指定配置到内存
-                ConfigDTO configDTO = getConfigInfoById(configId).getData();
-                success = ConfigCache.GLOBAL_CONFIG_CACHE.get(configDTO.getUserId()).remove(configDTO);
-            }
             return rCodeProvider.getRCode(success);
         } catch (IllegalArgumentException e) {
             logger.warn("删除配置的参数检验失败", e);
